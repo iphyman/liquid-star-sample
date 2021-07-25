@@ -23,7 +23,6 @@ walletRoutes.post("*", async (req: Request, res: Response, next: NextFunction) =
                 return res.status(200).send(await welcomeUser(phoneNumber));
             case "00":
                 return res.status(200).send(promptUserToSetupPin());
-
             case "1":
                 return res.status(200).send(promptUserToSelectBattery());
             case "2":
@@ -38,30 +37,25 @@ walletRoutes.post("*", async (req: Request, res: Response, next: NextFunction) =
                 return res.status(200).send(promptForPassword());
 
             default:
-                const commands = text.split("*");
-                if (commands[0] === "00") {
-                    return res.status(200).send("END " + (await createUser(phoneNumber, commands[1])));
-                }
+                const cmd = text.split("*");
 
-                if (commands[0] === "01") {
-                    return res.status(200).send("END Thank you, we hope to get you onboard soon");
-                }
-
-                if (commands[0] === "1") {
-                    if (commands[1] == "1") {
+                switch (cmd[0]) {
+                    case "00":
+                        return res.status(200).send("END " + (await createUser(phoneNumber, cmd[1])));
+                    case "01":
+                        return res.status(200).send("END Thank you, we hope to get you onboard soon");
+                    case "1":
+                        if (cmd[1] == "1") {
+                            return res.status(200).send(insufficientBalance());
+                        }
+                        break;
+                    case "2":
                         return res.status(200).send(insufficientBalance());
-                    }
+                    case "4":
+                        return res.status(200).send(checkBalance(phoneNumber));
+                    default:
+                        return res.status(200).send("END You have provided an invalid input, enter numbers only");
                 }
-
-                if (commands[0] === "2") {
-                    return res.status(200).send(insufficientBalance());
-                }
-
-                if (commands[0] === "4") {
-                    return res.status(200).send(checkBalance(phoneNumber));
-                }
-
-                return res.status(200).send("END You have provided an invalid input, enter numbers only");
         }
     } catch (error) {
         res.status(400).send("Error connecting, try again");
