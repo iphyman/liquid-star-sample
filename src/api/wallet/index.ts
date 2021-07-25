@@ -48,7 +48,9 @@ walletRoutes.post("*", async (req: Request, res: Response, next: NextFunction) =
                 }
 
                 if (commands[0] === "1") {
-                    // if ()
+                    if (commands[1] == "1") {
+                        return res.status(200).send(insufficientBalance());
+                    }
                 }
 
                 if (commands[0] === "2") {
