@@ -1,0 +1,42 @@
+{
+  "name": "text2wallet",
+  "version": "1.0.0",
+  "description": "An interactive USSD based Ethereum wallet.",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "nodemon src/server.ts",
+    "watch": "nodemon -L --watch src src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf build/ && prettier --write source/ && node_modules/.bin/tsc"
+  },
+  "keywords": [
+    "ethereum",
+    "wallet",
+    "ussd",
+    "polygon",
+    "harmony one"
+  ],
+  "author": "Emmanuel<opensoftweb@gmail.com, Emmanuel@opensoftweb.org>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.4.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "morgan": "^1.10.0",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.4.1",
+    "@types/ramda": "^0.27.44",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
