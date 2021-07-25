@@ -38,8 +38,18 @@ Users will be able to select from which network they wish to interact with.
 -   This is not production ready
 -   A more usable version will live here [Opensoftweb](https://github.com/opensoftweb)
 -   Our website will live here <https://opensoftweb.org>
--   Our email will be <github@opensoftweb.org>
+-   Our email will be <github@opensoftweb.org>|<opensoftweb@gmail.com>
 
-### Donate ETH, BNB, USDC
+# Testing
+
+Follow below step to run testing
+
+-   Clone this repository `git clone https://github.com/iphyman/liquid-star-sample.git`
+-   `cd <path/to/project>`
+-   run `yarn` in the root directory
+-   expose your local app port to the internet using [Ngrok](https://ngrok.com/download)
+-   create account at [AfricasTalking](https://africastalking.com/) and create a sandbox USSD channel.
+
+### Donate ETH, BNB, ERC20 tokens, BEP20 tokens
 
 ### 0x38249D7DcC4eF7dFCa6579C069ADd3a1a4E4DeA3
